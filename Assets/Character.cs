@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     public Rigidbody2D MyRigidbody;
     public int characterSpeed;
     public int jump;
+    public int jumpPower;
     public float horizontal;
     public Vector2 boxSize;
     public float castDistance;
@@ -25,7 +26,7 @@ public class Character : MonoBehaviour
         if (horizontal != 0) this.transform.localScale = new Vector3(horizontal, 1, 1);
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x, jump);
+            MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x, jump * jumpPower);
         }
 
     }
