@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Rigidbody2D MyRigidbody;
+    public Rigidbody2D myRigidbody;
+    public int hp;
     public int characterSpeed;
     public int jump;
     public int jumpPower;
@@ -15,18 +16,18 @@ public class Character : MonoBehaviour
     public LayerMask groundLayer;
     void Start()
     {
-        MyRigidbody = GetComponent<Rigidbody2D>();
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        MyRigidbody.velocity = new Vector2(horizontal * characterSpeed, MyRigidbody.velocity.y);
+        myRigidbody.velocity = new Vector2(horizontal * characterSpeed, myRigidbody.velocity.y);
         if (horizontal != 0) this.transform.localScale = new Vector3(horizontal, 1, 1);
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            MyRigidbody.velocity = new Vector2(MyRigidbody.velocity.x, jump * jumpPower);
+            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jump * jumpPower);
         }
 
     }
@@ -42,11 +43,5 @@ public class Character : MonoBehaviour
             return false;
         }
     }
-
- 
-       private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireCube(transform.position - transform.up * castDistance, boxSize);
-        }
    
 }
