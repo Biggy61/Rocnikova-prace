@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public int characterSpeed;
     public int jump;
     public int jumpPower;
-    public float horizontal;
+    public float horizontal; 
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
@@ -29,6 +29,11 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jump * jumpPower);
         }
+        if(hp <= 0)
+        {
+            
+        }
+
 
     }
     

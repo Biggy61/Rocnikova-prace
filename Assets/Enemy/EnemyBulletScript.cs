@@ -13,7 +13,7 @@ public class EnemyBulletScript : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         Vector3 direction = player.transform.position - transform.position;
-        myRigidbody.velocity = new Vector2(direction.x, direction.y).normalized;
+        myRigidbody.velocity = new Vector2(direction.x, direction.y).normalized * speed;
     }
 
     void Update()
@@ -21,4 +21,5 @@ public class EnemyBulletScript : MonoBehaviour
         
     }
 }
+ 
  
