@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public Rigidbody2D myRigidbody;
     public int hp;
+    public int maxHealth = 100;
+    public HealthBar healthBar;
     public int characterSpeed;
     public int jump;
     public int jumpPower;
@@ -17,11 +19,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        healthBar.SetHealth(hp);
         horizontal = Input.GetAxisRaw("Horizontal");
         myRigidbody.velocity = new Vector2(horizontal * characterSpeed, myRigidbody.velocity.y);
         if (horizontal != 0) this.transform.localScale = new Vector3(horizontal, 1, 1);
@@ -29,10 +33,7 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jump * jumpPower);
         }
-        if(hp <= 0)
-        {
-            
-        }
+       
 
 
     }
