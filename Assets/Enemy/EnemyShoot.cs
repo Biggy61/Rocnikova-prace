@@ -30,7 +30,7 @@ public class EnemyShoot : MonoBehaviour
             shoot();
         }
         }
-       //Debug.Log(distance);
+       //Debug.Log(distancePlayerEnenemy);
 
         void shoot()
         { 

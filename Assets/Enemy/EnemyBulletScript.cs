@@ -27,7 +27,6 @@ public class EnemyBulletScript : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(distance);
     }
 }
  

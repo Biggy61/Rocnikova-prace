@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Rigidbody2D myRigidbody;
+    public Rigidbody2D rb;
     public int hp;
     public int maxHealth = 100;
     public HealthBar healthBar;
@@ -16,9 +16,12 @@ public class Player : MonoBehaviour
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
+    [SerializeField] float fallMultiplier;
+    public Vector2 gravityVector;
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody2D>();
+        gravityVector = new Vector2(0, Physics2D.gravity.y);
+        rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxHealth(maxHealth);
     }
 
@@ -27,14 +30,17 @@ public class Player : MonoBehaviour
     { 
         healthBar.SetHealth(hp);
         horizontal = Input.GetAxisRaw("Horizontal");
-        myRigidbody.velocity = new Vector2(horizontal * characterSpeed, myRigidbody.velocity.y);
+        rb.velocity = new Vector2(horizontal * characterSpeed, rb.velocity.y);
         if (horizontal != 0) this.transform.localScale = new Vector3(horizontal, 1, 1);
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jump * jumpPower);
+            rb.velocity = new Vector2(rb.velocity.x, jump * jumpPower);
         }
-       
 
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += gravityVector * fallMultiplier * Time.deltaTime;
+        }
 
     }
     
