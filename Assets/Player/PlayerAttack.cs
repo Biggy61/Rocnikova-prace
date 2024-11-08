@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public Animator animator;
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayer;
@@ -15,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
+            animator.SetTrigger("Attack");
         }
     }
     void Attack()
