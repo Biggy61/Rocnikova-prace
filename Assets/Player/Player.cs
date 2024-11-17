@@ -29,8 +29,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (!IsGrounded()) { animator.SetTrigger("Jump"); }
-        if (Input.GetKey(KeyCode.A) || IsGrounded())  { animator.SetTrigger("Move"); }
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && IsGrounded())  { animator.SetTrigger("Move"); }
         healthBar.SetHealth(hp);
         horizontal = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(horizontal * characterSpeed, rb.velocity.y);
