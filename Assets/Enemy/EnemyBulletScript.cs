@@ -16,7 +16,7 @@ public class EnemyBulletScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         Vector3 direction = player.transform.position - transform.position;
-        myRigidbody.velocity = new Vector2(direction.x, direction.y).normalized * speed;
+        myRigidbody.linearVelocity = new Vector2(direction.x, direction.y).normalized * speed;
         
     }
 
