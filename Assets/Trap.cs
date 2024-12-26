@@ -15,7 +15,9 @@ public class Trap : MonoBehaviour
     void Update()
     {
         var distance = Vector2.Distance(player.transform.position, transform.position);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y + 2f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y - 0.5f);
+        
+            
         
 
         

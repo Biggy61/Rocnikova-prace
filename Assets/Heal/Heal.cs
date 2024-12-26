@@ -20,9 +20,10 @@ public class Heal : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        
         if (collision.gameObject.name == "Player")
         {
+            Destroy(this.gameObject);
             if (player.GetComponent<Player>().hp < 100)
             {
                 player.GetComponent<Player>().hp += 10;
