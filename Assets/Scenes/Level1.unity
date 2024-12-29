@@ -1147,7 +1147,7 @@ GameObject:
   - component: {fileID: 1395959314}
   - component: {fileID: 1395959313}
   - component: {fileID: 1395959312}
-  - component: {fileID: 1395959317}
+  - component: {fileID: 1395959320}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1168,20 +1168,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1395959318}
-  rb: {fileID: 0}
+  rb: {fileID: 1395959313}
   hp: 100
   extraJumpValue: 1
   maxHealth: 100
   healthBar: {fileID: 389268781}
   characterSpeed: 100
-  jump: 70
-  jumpPower: 2
-  horizontal: 6
-  castDistance: 3.9
+  jump: 1
+  jumpPower: 200
+  horizontal: 0
+  castDistance: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 192
-  fallMultiplier: 15.5
+    m_Bits: 64
+  fallMultiplier: 20
   gravityVector: {x: 0, y: 0}
   isGrounded: 0
   groundCheck: {fileID: 2144230056}
@@ -1321,25 +1321,6 @@ Transform:
   - {fileID: 2144230056}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1395959317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395959311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eada206fd2603474ea8c97e7d483597a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1395959318}
-  attackPoint: {fileID: 1637080587}
-  attackRange: 7.3
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemy: {fileID: 0}
 --- !u!95 &1395959318
 Animator:
   serializedVersion: 7
@@ -1362,6 +1343,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1395959320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395959311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ea17c7776c53d42a3c2863b4ea835b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2393257354681259430, guid: 1cf4c2919723b314fbec89c45d7480e5, type: 3}
+  bulletPos: {fileID: 1637080587}
 --- !u!1 &1437147721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2015,10 @@ PrefabInstance:
     - target: {fileID: 6088086554105533227, guid: c599435ee1375c4449ba70cab2051870, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248907341043091306, guid: c599435ee1375c4449ba70cab2051870, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

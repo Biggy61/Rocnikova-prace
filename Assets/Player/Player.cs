@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(hp);
         horizontal = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(horizontal * characterSpeed, rb.linearVelocity.y);
-        if (horizontal != 0) this.transform.localScale = new Vector3(horizontal, 1, 1);
+        if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
         // if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         // {
         //     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
