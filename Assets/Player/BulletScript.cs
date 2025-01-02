@@ -7,28 +7,45 @@ public class BulletScript : MonoBehaviour
     public GameObject player;
     private Rigidbody2D myRigidbody;
     private Vector2 plus;
-
+    private Vector2 minus;
+    private float direction;
     void Start()
     {
-        
-        myRigidbody = GetComponent<Rigidbody2D>(); 
+        myRigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        // Vector2 direction = player.transform.position.x , player.transform.position.y;
-        // myRigidbody.linearVelocity = new Vector2(direction.x, myRigidbody.transform.position.y).normalized * speed;
-        //
+        direction = player.transform.localScale.x;
     }
 
     void Update()
     {
-        plus = myRigidbody.transform.position;
-        plus.x += 1;
-        myRigidbody.transform.position = plus;
+        Direction();
+        Death();
+    }
+
+    void Direction()
+    {
+        if (direction == 1)
+        {
+            plus = myRigidbody.transform.position;
+            plus.x += 1;
+            myRigidbody.transform.position = plus;
+        }
+
+        if (direction == -1)
+        {
+            minus = myRigidbody.transform.position;
+            minus.x -= 1;
+            myRigidbody.transform.position = minus;
+        }
+    }
+
+
+    void Death()
+    {
         float distance = Vector3.Distance(myRigidbody.transform.position, player.transform.position);
-        if (distance > 300 )
+        if (distance > 300)
         {
             Destroy(this.gameObject);
         }
     }
 }
- 
- 
