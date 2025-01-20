@@ -2,34 +2,35 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    public GameObject player;
     public Rigidbody2D rb;
-    private Vector2 plus;
-    private Vector2 end;
-    public Rigidbody2D trapRb;
-    private bool set;
+    public Vector2 plus;
+    private float start;
+    private float end;
+    public GameObject player;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
-        set = false;
-        end = trapRb.transform.position;
-        end.y += 400;
+        start = rb.transform.position.y;
+        end = rb.transform.position.y + 200;
     }
 
     // Update is called once per frame
     void Update()
     {
-        while (set == true)
+        if(start < end)
         {
+            plus = rb.transform.position;
+            plus.y += 1;
+            rb.transform.position = plus;
+            start += 1;
+        }
 
-            while (end.y > plus.y)
-            {
-                plus = trapRb.transform.position;
-                plus.y += 1;
-                trapRb.transform.position = plus;
-            }
+        if (start >= end)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -37,7 +38,8 @@ public class Trap : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            set = true;
+            player.GetComponent<Player>().hp -= 100;
+            Debug.Log("Hit!");
         }
     }
 }
