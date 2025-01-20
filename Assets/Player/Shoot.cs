@@ -18,7 +18,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
          timer += Time.deltaTime;
-         if (Input.GetMouseButtonDown(0) && timer > 1f)
+         if (Input.GetMouseButtonDown(0) && timer > 0.3f)
          {
              shoot();
              timer = 0;
