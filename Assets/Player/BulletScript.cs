@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     private Vector2 plus;
     private Vector2 minus;
     private float direction;
+    private float timer = 0;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -18,6 +19,7 @@ public class BulletScript : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
         Direction();
         Death();
     }
@@ -42,8 +44,8 @@ public class BulletScript : MonoBehaviour
 
     void Death()
     {
-        float distance = Vector3.Distance(myRigidbody.transform.position, player.transform.position);
-        if (distance > 300)
+        // float distance = Vector3.Distance(myRigidbody.transform.position, player.transform.position);
+        if (timer >= 5f)
         {
             Destroy(this.gameObject);
         }

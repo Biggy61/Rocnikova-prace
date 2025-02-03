@@ -8,10 +8,11 @@ public class EnemyBulletScript : MonoBehaviour
     private Rigidbody2D myRigidbody;
     public GameObject enemy;
     public float speed;
-
+    private float timer = 0f;
     void Start()
     {
-        
+
+    
         myRigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GameObject.FindGameObjectWithTag("Enemy");
@@ -22,8 +23,9 @@ public class EnemyBulletScript : MonoBehaviour
 
     void Update()
     {
-        float distance = Vector3.Distance(myRigidbody.transform.position, enemy.transform.position);
-        if (distance > 300 )
+        timer += Time.deltaTime;
+        // float distance = Vector3.Distance(myRigidbody.transform.position, enemy.transform.position);
+        if (timer >= 10f )
         {
             Destroy(this.gameObject);
         }
