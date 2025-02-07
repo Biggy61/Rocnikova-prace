@@ -29,14 +29,14 @@ public class BulletScript : MonoBehaviour
         if (direction == 1)
         {
             plus = myRigidbody.transform.position;
-            plus.x += 1;
+            plus.x += 2;
             myRigidbody.transform.position = plus;
         }
 
         if (direction == -1)
         {
             minus = myRigidbody.transform.position;
-            minus.x -= 1;
+            minus.x -= 2;
             myRigidbody.transform.position = minus;
         }
     }

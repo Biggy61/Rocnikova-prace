@@ -34,8 +34,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer);
             if (!isGrounded)
             {
@@ -88,8 +86,5 @@ public class Player : MonoBehaviour
     {
         return hp > 0;
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(groundCheck.position, castDistance);
-    }
+
 }
