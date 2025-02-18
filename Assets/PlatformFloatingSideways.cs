@@ -3,14 +3,13 @@ using UnityEngine;
 public class PlatformFloatingSideways : MonoBehaviour
 {
     public Rigidbody2D rb;
-
     private Vector2 move;
 
     private float plus;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        plus = 0.2f;
+        plus = 0.7f;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -24,9 +23,8 @@ public class PlatformFloatingSideways : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name != "Player")
-        {
-            plus *= -1;
-        }
+        if (collision.gameObject.name != "Player") { plus *= -1; }
+       
     }
+
 }

@@ -23,9 +23,9 @@ public class Trap : MonoBehaviour
         if(start < end)
         {
             plus = rb.transform.position;
-            plus.y += 1;
+            plus.y += 1.5f;
             rb.transform.position = plus;
-            start += 1;
+            start += 1.5f;
         }
 
         if (start >= end)

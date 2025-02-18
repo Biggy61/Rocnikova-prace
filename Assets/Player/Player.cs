@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
             {
                 animator.SetTrigger("Jump");
             }
-
             if (isGrounded == true)
             {
                 extraJump = extraJumpValue;
@@ -61,9 +60,13 @@ public class Player : MonoBehaviour
             }
 
             healthBar.SetHealth(hp);
-            horizontal = Input.GetAxisRaw("Horizontal");
-            rb.linearVelocity = new Vector2(horizontal * characterSpeed, rb.linearVelocity.y);
-            if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
+            if (IsAlive())
+            {
+                horizontal = Input.GetAxisRaw("Horizontal");
+                rb.linearVelocity = new Vector2(horizontal * characterSpeed, rb.linearVelocity.y);
+                if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
+            }
+
             // if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             // {0
             //     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
@@ -87,4 +90,12 @@ public class Player : MonoBehaviour
         return hp > 0;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Move"))
+        {
+            Debug.Log(collision.gameObject.name);
+        }
+        
+    }
 }
