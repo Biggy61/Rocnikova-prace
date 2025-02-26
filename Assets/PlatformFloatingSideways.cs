@@ -3,28 +3,29 @@ using UnityEngine;
 public class PlatformFloatingSideways : MonoBehaviour
 {
     public Rigidbody2D rb;
-    private Vector2 move;
 
-    private float plus;
+    public bool Direction;
+    public Player player;
+    public float plus;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        plus = 0.7f;
+        plus = 0.3f;
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        move = rb.transform.position;
+        var move = rb.transform.position;
         move.x += plus;
         rb.transform.position = move;
+        if (plus > 0) { Direction = true; }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name != "Player") { plus *= -1; }
-       
+        if (collision.gameObject.CompareTag("Ground")) { plus *= -1; player.plus *= -1; }
     }
 
 }
