@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public Transform bulletPos;
     private float timer;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Shoot : MonoBehaviour
          if (Input.GetMouseButtonDown(0) && timer > 0.3f)
          {
              shoot();
+             animator.SetTrigger("Attack");
              timer = 0;
          }
 
