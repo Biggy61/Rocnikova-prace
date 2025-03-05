@@ -10,7 +10,7 @@ public class PlatformFloatingSideways : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        plus = 0.3f;
+        plus = 0.2f;
         rb = GetComponent<Rigidbody2D>();
     }
 

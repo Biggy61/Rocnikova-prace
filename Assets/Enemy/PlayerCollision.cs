@@ -19,13 +19,12 @@ public class PlayerCollision : MonoBehaviour
    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             player.GetComponent<Player>().hp -= 10;
             Debug.Log("Hit!");
         }
-
+        Destroy(this.gameObject);
 
     }
 }
