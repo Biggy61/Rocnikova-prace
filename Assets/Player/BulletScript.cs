@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
         direction = player.transform.localScale.x;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
         Direction();
@@ -29,14 +29,14 @@ public class BulletScript : MonoBehaviour
         if (direction == 1)
         {
             plus = myRigidbody.transform.position;
-            plus.x += 2;
+            plus.x += 6;
             myRigidbody.transform.position = plus;
         }
 
         if (direction == -1)
         {
             minus = myRigidbody.transform.position;
-            minus.x -= 2;
+            minus.x -= 6;
             myRigidbody.transform.position = minus;
         }
     }

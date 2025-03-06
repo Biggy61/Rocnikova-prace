@@ -21,7 +21,7 @@ public class EnemyBulletScript : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
         // float distance = Vector3.Distance(myRigidbody.transform.position, enemy.transform.position);

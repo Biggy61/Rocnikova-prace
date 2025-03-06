@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public int characterSpeed;
     public int jump;
     public int jumpPower;
-
+    public GameObject respawn;
     public float horizontal;
 
     //public Vector2 boxSize;
@@ -69,21 +69,25 @@ public class Player : MonoBehaviour
             if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
         }
         
-        if (!IsAlive())
-        {
-            animator.SetTrigger("Death");
-        }
+        if (!IsAlive()) { animator.SetTrigger("Death"); }
 
         if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += gravityVector * fallMultiplier * Time.deltaTime;
         }
         ApplyMove();
+        Respawn();
+        Barrier();
     }
 
     private bool IsAlive()
     {
         return hp > 0;
+    }
+
+    private void Barrier()
+    {
+        if (gameObject.transform.position.y <= -80) { hp -= 100; }
     }
 
     private void ApplyMove()
@@ -110,5 +114,12 @@ public class Player : MonoBehaviour
         {
             _standingOn = null;
         }
+    }
+
+
+    public void Respawn()
+    { 
+        if (IsAlive()) { respawn.SetActive(!true); }
+        else { respawn.SetActive(true); }
     }
 }

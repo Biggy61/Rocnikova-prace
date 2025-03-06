@@ -18,14 +18,14 @@ public class Trap : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(start < end)
         {
             plus = rb.transform.position;
-            plus.y += 1.5f;
+            plus.y += 10f;
             rb.transform.position = plus;
-            start += 1.5f;
+            start += 10f;
         }
 
         if (start >= end)
