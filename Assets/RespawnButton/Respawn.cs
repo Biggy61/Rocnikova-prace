@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class Respawn : MonoBehaviour
 {
+    public GameObject respawn;
+    public GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        respawn = GameObject.FindGameObjectWithTag("Respawn");
     }
 
     // Update is called once per frame
@@ -18,5 +22,8 @@ public class Respawn : MonoBehaviour
     {
         Debug.Log("Respawn");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        player.transform.position = respawn.transform.position;
+        player.GetComponent<Player>().hp += 100;
     }
 }
