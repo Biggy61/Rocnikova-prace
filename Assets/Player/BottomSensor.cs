@@ -19,7 +19,7 @@ public class EnemyJumpKill : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Enemy>().hp -= 100;
         }
     }
 }

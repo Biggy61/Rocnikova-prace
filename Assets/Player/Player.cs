@@ -17,15 +17,13 @@ public class Player : MonoBehaviour
     public int jumpPower;
     public GameObject respawn;
     public float horizontal;
-
-    //public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
     [SerializeField] float fallMultiplier;
     public Vector2 gravityVector;
     public bool isGrounded;
     public Transform groundCheck;
-    public float plus;
+    public float plus = 1.4f;
     private GameObject _standingOn;
 
     void Start()
@@ -34,7 +32,6 @@ public class Player : MonoBehaviour
         gravityVector = new Vector2(0, Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxHealth(maxHealth);
-        plus = 1.4f;
     }
 
     // Update is called once per frame
@@ -77,17 +74,11 @@ public class Player : MonoBehaviour
         }
         ApplyMove();
         Respawn();
-        Barrier();
     }
 
     private bool IsAlive()
     {
         return hp > 0;
-    }
-
-    private void Barrier()
-    {
-        if (gameObject.transform.position.y <= -80) { hp -= 100; }
     }
 
     private void ApplyMove()

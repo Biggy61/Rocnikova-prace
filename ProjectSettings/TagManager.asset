@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Move
   - Round
+  - Score
+  - EnemyRound
   layers:
   - Default
   - TransparentFX
@@ -22,8 +24,8 @@ TagManager:
   - Background
   - Check
   - Move
-  - 
-  - 
+  - EnemyRound
+  - FriendlyRound
   - 
   - 
   - 

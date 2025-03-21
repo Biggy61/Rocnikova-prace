@@ -8,28 +8,26 @@ public class Enemy : MonoBehaviour
 {
     public int hp;
     public GameObject player;
-    private bool flip;
-    private bool flip1;
+    public GameObject score;
     void Start()
     {
-      
+      score = GameObject.FindGameObjectWithTag("Score");
     }
 
     // Update is called once per frame
     void Update()
     {
         Check();
-        if (hp <= 0) { Destroy(gameObject); }  
-
+        Death();
     }
 
-    void Flip()
+    void FlipNegative()
     {
         Vector3 newScale = transform.localScale;
         newScale.x = -1;
         transform.localScale = newScale;
     }
-    void Flip1()
+    void FlipPositive()
     {
         Vector3 newScale = transform.localScale;
         newScale.x = 1;
@@ -42,31 +40,24 @@ public class Enemy : MonoBehaviour
         var playerPos = player.transform.position.x;
         var enemyPos = transform.position.x;
         if (playerPos > enemyPos)
-        { 
-            flip = true;
-        }
-        else
         {
-            flip = false;
-        }
-        
-        if (playerPos < enemyPos)
-        {
-            flip1 = true;
-        }
-        else
-        {
-            flip1 = false;
+            FlipPositive();
         }
 
-        if (flip)
+        if (playerPos < enemyPos)
         {
-            Flip1();
+            FlipNegative();
         }
-        if (flip1)
+
+    }
+
+    void Death()
+    {
+        if (hp <= 0)
         {
-            Flip();
-        }
+            Destroy(gameObject);
+            score.GetComponent<Score.Score>().score += 50;
+        }  
     }
 }
 
