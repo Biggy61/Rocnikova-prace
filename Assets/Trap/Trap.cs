@@ -7,7 +7,7 @@ public class Trap : MonoBehaviour
     private float start;
     private float end;
     public GameObject player;
-
+    public float speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,9 +23,9 @@ public class Trap : MonoBehaviour
         if(start < end)
         {
             plus = rb.transform.position;
-            plus.y += 10f;
+            plus.y += speed;
             rb.transform.position = plus;
-            start += 10f;
+            start += speed;
         }
 
         if (start >= end)

@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
         {
             rb.linearVelocity += gravityVector * fallMultiplier * Time.deltaTime;
         }
+        FallDeath();
         ApplyMove();
         Respawn();
     }
@@ -81,6 +82,13 @@ public class Player : MonoBehaviour
         return hp > 0;
     }
 
+    private void FallDeath()
+    {
+        if (rb.position.y <= -130)
+        {
+            hp -= 100;
+        }
+    }
     private void ApplyMove()
     {
         if (_standingOn is not null)
