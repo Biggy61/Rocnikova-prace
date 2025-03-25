@@ -20,7 +20,7 @@ public class EnemyShoot : MonoBehaviour
     {
         float distancePlayerEnenemy = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distancePlayerEnenemy < 175)
+        if (distancePlayerEnenemy < 200)
         {
          timer += Time.deltaTime;
         if (timer > 1)
