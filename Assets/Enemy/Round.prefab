@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemy: {fileID: 0}
-  speed: 60
+  speed: 120
 --- !u!58 &1892702959773178279
 CircleCollider2D:
   m_ObjectHideFlags: 0

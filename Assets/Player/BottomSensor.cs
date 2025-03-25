@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class EnemyJumpKill : MonoBehaviour
 {
+    private GameObject player; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+       player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -20,6 +21,11 @@ public class EnemyJumpKill : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().hp -= 100;
+            if (player.GetComponent<Player>().hp < 100)
+            {
+                player.GetComponent<Player>().hp += 10;
+            }
+
         }
     }
 }
