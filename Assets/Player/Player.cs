@@ -73,10 +73,14 @@ public class Player : MonoBehaviour
             rb.linearVelocity += gravityVector * fallMultiplier * Time.deltaTime;
         }
         FallDeath();
-        ApplyMove();
+        
         Respawn();
     }
 
+    private void FixedUpdate()
+    {
+        ApplyMove();
+    }
     private bool IsAlive()
     {
         return hp > 0;

@@ -10,12 +10,12 @@ public class PlatformFloatingSideways : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        plus = 0.2f;
+        plus = 1.5f;
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var move = rb.transform.position;
         move.x += plus;
