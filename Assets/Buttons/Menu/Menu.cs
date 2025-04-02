@@ -4,6 +4,7 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public GameObject menu;
+     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,7 @@ public class Menu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && menu.activeInHierarchy == false)
         {
             menu.SetActive(true);
+            TogglePause(false);
         }
     }
 
@@ -24,6 +26,20 @@ public class Menu : MonoBehaviour
         if (menu.activeInHierarchy == true)
         {
             menu.SetActive(false);
+            TogglePause(true);
+        }
+    }
+    
+  
+    public void TogglePause(bool isPaused)
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Time.timeScale = 0f; 
         }
     }
 }
