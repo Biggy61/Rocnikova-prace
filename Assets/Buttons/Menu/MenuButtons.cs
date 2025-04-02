@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -18,5 +19,10 @@ public class EndGame : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit");
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

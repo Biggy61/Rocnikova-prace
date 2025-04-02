@@ -19,8 +19,8 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         float distancePlayerEnenemy = Vector3.Distance(player.transform.position, transform.position);
-
-        if (distancePlayerEnenemy < 200)
+        bool visible = player.transform.position.y < transform.position.y + 20 && player.transform.position.y > transform.position.y - 20;
+        if (distancePlayerEnenemy < 200 & visible)
         {
          timer += Time.deltaTime;
         if (timer > 1)

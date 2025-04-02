@@ -3,13 +3,19 @@ using UnityEngine;
 
 namespace Score
 {
-    public class Score : MonoBehaviour
+    public class Score : MonoBehaviour, DataPersistance
     {
         public float score;
         public TextMeshProUGUI scoreText;
-        void Start()
+
+        public void LoadData(GameData data)
         {
-        
+            score = data.Score;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.Score = score;
         }
 
         // Update is called once per frame

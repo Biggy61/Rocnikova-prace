@@ -38,12 +38,13 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         var playerPos = player.transform.position.x;
         var enemyPos = transform.position.x;
-        if (playerPos > enemyPos)
+        bool visible = player.transform.position.y < transform.position.y + 20 && player.transform.position.y > transform.position.y - 20;
+        if (playerPos > enemyPos && visible)
         {
             FlipPositive();
         }
 
-        if (playerPos < enemyPos)
+        if (playerPos < enemyPos && visible)
         {
             FlipNegative();
         }
