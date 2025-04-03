@@ -18,6 +18,7 @@ public class DataManager : MonoBehaviour
 
  public void Start()
  {
+  this.dataPersistanceOBJ = FindAllDataObjects();
   LoadGame();
  }
 
@@ -27,17 +28,34 @@ public class DataManager : MonoBehaviour
  }
  public void NewGame()
  {
-   gameData = new GameData();
+   this.gameData = new GameData();
  }
 
  public void LoadGame()
  {
   if (gameData == null) { NewGame(); }
+
+  foreach (DataPersistance dataPersistance in dataPersistanceOBJ)
+  {
+   dataPersistance.LoadData(gameData);
+  }
   
+  Debug.Log("Load count: " + gameData.score);
  }
 
  public void SaveGame()
  {
-   
+  foreach (DataPersistance dataPersistance in dataPersistanceOBJ)
+  {
+   dataPersistance.SaveData(ref gameData);
+  }
+  Debug.Log("Save count: " + gameData.score);
+ }
+
+ private List<DataPersistance> FindAllDataObjects()
+ {
+  IEnumerable<DataPersistance> dataPersistancesObjects = FindObjectsOfType<MonoBehaviour>().OfType<DataPersistance>();
+  
+  return new List<DataPersistance>(dataPersistancesObjects);
  }
 }

@@ -10,12 +10,12 @@ namespace Score
 
         public void LoadData(GameData data)
         {
-            score = data.Score;
+            this.score = data.score;
         }
 
         public void SaveData(ref GameData data)
         {
-            data.Score = score;
+            data.score = this.score;
         }
 
         // Update is called once per frame
