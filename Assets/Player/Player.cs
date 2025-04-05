@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, DataPersistance
 {
     public Animator animator;
     public Rigidbody2D rb;
@@ -26,6 +26,16 @@ public class Player : MonoBehaviour
     public float plus = 1.4f;
     private GameObject _standingOn;
 
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = transform.position;
+    }
+    
     void Start()
     {
         extraJump = extraJumpValue;

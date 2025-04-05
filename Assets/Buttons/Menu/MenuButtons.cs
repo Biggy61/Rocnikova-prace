@@ -24,6 +24,7 @@ public class EndGame : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        DataManager.instance.SaveGame();
         SceneManager.LoadScene(0);
     }
 }

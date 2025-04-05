@@ -18,4 +18,11 @@ public class StartGame : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void NewGameButton()
+    {
+        DataManager.instance.NewGame();
+        DataManager.instance.SaveGame();
+        SceneManager.LoadScene(1);
+    }
 }

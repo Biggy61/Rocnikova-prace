@@ -3,10 +3,13 @@ using UnityEngine;
 using System.Linq;
 public class DataManager : MonoBehaviour
 {
+ [Header("File Storage Config")] 
+ [SerializeField] private string fileName;
  private GameData gameData;
  private List<DataPersistance> dataPersistanceOBJ;
  public static DataManager instance {get; private set;}
 
+ private FileDataHandler dataHandler;
  private void Awake()
  {
   if (instance != null)
@@ -17,7 +20,9 @@ public class DataManager : MonoBehaviour
  }
 
  public void Start()
- {
+ { 
+  //persistentDataPath - da OS standartni directory pro unity project
+  this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
   this.dataPersistanceOBJ = FindAllDataObjects();
   LoadGame();
  }
@@ -33,6 +38,8 @@ public class DataManager : MonoBehaviour
 
  public void LoadGame()
  {
+  this.gameData = dataHandler.Load();
+  
   if (gameData == null) { NewGame(); }
 
   foreach (DataPersistance dataPersistance in dataPersistanceOBJ)
@@ -50,6 +57,7 @@ public class DataManager : MonoBehaviour
    dataPersistance.SaveData(ref gameData);
   }
   Debug.Log("Save count: " + gameData.score);
+  dataHandler.Save(gameData);
  }
 
  private List<DataPersistance> FindAllDataObjects()

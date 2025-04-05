@@ -21,8 +21,6 @@ public class Respawn : MonoBehaviour
     public void RespawnButton()
     {
         Debug.Log("Respawn");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        
         player.transform.position = respawn.transform.position;
         player.GetComponent<Player>().hp += 100;
     }
