@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -18,6 +19,7 @@ public class DataManager : MonoBehaviour
   }
   instance = this;
  }
+
 
  public void Start()
  { 
@@ -47,7 +49,7 @@ public class DataManager : MonoBehaviour
    dataPersistance.LoadData(gameData);
   }
   
-  Debug.Log("Load count: " + gameData.score);
+
  }
 
  public void SaveGame()
@@ -56,10 +58,9 @@ public class DataManager : MonoBehaviour
   {
    dataPersistance.SaveData(ref gameData);
   }
-  Debug.Log("Save count: " + gameData.score);
   dataHandler.Save(gameData);
  }
-
+ 
  private List<DataPersistance> FindAllDataObjects()
  {
   IEnumerable<DataPersistance> dataPersistancesObjects = FindObjectsOfType<MonoBehaviour>().OfType<DataPersistance>();

@@ -17,7 +17,7 @@ public class EndGame : MonoBehaviour
     
     public void EndGameButton()
     {
-        DataManager.instance.ExitGame();
+        DataManager.instance.SaveGame();
         Application.Quit();
         Debug.Log("Quit");
     }

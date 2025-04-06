@@ -21,7 +21,7 @@ public class Respawn : MonoBehaviour
     public void RespawnButton()
     {
         Debug.Log("Respawn");
+        player.GetComponent<Player>().hp = 100;
         player.transform.position = respawn.transform.position;
-        player.GetComponent<Player>().hp += 100;
     }
 }

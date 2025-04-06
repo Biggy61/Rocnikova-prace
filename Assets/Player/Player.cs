@@ -29,11 +29,13 @@ public class Player : MonoBehaviour, DataPersistance
     public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
+        this.hp = data.playerHp;
     }
 
     public void SaveData(ref GameData data)
     {
         data.playerPosition = transform.position;
+        data.playerHp = hp;
     }
     
     void Start()
@@ -60,6 +62,10 @@ public class Player : MonoBehaviour, DataPersistance
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
             extraJump--;
+        }
+        else
+        {
+            animator.SetTrigger("Idle");
         }
 
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && isGrounded && IsAlive())
@@ -100,7 +106,7 @@ public class Player : MonoBehaviour, DataPersistance
     {
         if (rb.position.y <= -130)
         {
-            hp -= 100;
+            hp = 0;
         }
     }
     private void ApplyMove()
