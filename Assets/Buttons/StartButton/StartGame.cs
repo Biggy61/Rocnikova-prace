@@ -16,12 +16,12 @@ public class StartGame : MonoBehaviour
 
     public void StartButton()
     {
+        DataManager.instance.SaveGame();
         SceneManager.LoadScene(1);
     }
 
     public void NewGameButton()
     {
         DataManager.instance.NewGame();
-
     }
 }

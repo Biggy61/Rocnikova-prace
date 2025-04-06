@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using System.IO;
+using Unity.VisualScripting;
+
 public class FileDataHandler
 {
   private string dataDirectoryPath = "";
@@ -29,6 +31,7 @@ public class FileDataHandler
           using (StreamReader reader = new StreamReader(stream))
           {
             dataToLoad = reader.ReadToEnd();
+
           }
         }
         //Desearilovat data z Json zpatky do C# objectu
