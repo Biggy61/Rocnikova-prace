@@ -13,21 +13,23 @@ public class Heal : MonoBehaviour, DataPersistance
     {
         id = System.Guid.NewGuid().ToString();
     }
+
     public GameObject player;
     public GameObject score;
 
-    public bool collected= false;
+    public bool collected = false;
+
     // Start is called before the first frame update
     public void LoadData(GameData data)
     {
         Debug.Log("blablabla");
-        bool isCollected;
-      data.healsCollected.TryGetValue(id, out isCollected);
-      Debug.Log(id + isCollected);
-      if (isCollected)
-      {
-         this.gameObject.SetActive(false);
-      }
+        data.healsCollected.TryGetValue(id, out collected);
+        Debug.Log("collected: " + collected);
+        if (collected)
+        {
+            Debug.Log("IT WORKS!");
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void SaveData(ref GameData data)
@@ -37,11 +39,11 @@ public class Heal : MonoBehaviour, DataPersistance
         if (data.healsCollected.ContainsKey(id))
         {
             data.healsCollected.Remove(id);
-        }   
+        }
         data.healsCollected.Add(id, collected);
         Debug.Log(id + collected);
     }
-    
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -51,12 +53,10 @@ public class Heal : MonoBehaviour, DataPersistance
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
         if (collision.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
@@ -68,11 +68,6 @@ public class Heal : MonoBehaviour, DataPersistance
                 player.GetComponent<Player>().hp += 10;
                 Debug.Log("Healed");
             }
-
-            
-            
         }
-
-
     }
 }

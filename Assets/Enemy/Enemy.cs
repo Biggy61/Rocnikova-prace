@@ -3,15 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, DataPersistance
 {
+    [SerializeField] private string id;
+
+    [ContextMenu("Generate guid of ID")]
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
     public int hp;
     public GameObject player;
     public GameObject score;
+    private bool enemiesKilled = false;
+    
+    public void LoadData(GameData data)
+    {
+        Debug.Log("blablabla");
+        data.enemiesKilled.TryGetValue(id, out enemiesKilled);
+        Debug.Log("killed: " + enemiesKilled);
+        if (enemiesKilled)
+        {
+            Debug.Log("IT WORKS!");
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        Debug.Log("saving ");
+        //pokud uz je v Dictionary tam se vymaze a prida znovu
+        if (data.enemiesKilled.ContainsKey(id))
+        {
+            data.enemiesKilled.Remove(id);
+        }
+        data.enemiesKilled.Add(id, enemiesKilled);
+        Debug.Log(id + enemiesKilled);
+    }
     void Start()
     {
       score = GameObject.FindGameObjectWithTag("Score");
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -55,6 +88,7 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            enemiesKilled = true;
             Destroy(gameObject);
             score.GetComponent<Score.Score>().score += 50;
         }  
