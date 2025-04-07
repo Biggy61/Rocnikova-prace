@@ -20,7 +20,7 @@ public class Shoot : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
          timer += Time.deltaTime;
          hp = player.GetComponent<Player>().hp;
          if (Input.GetMouseButtonDown(0) && timer > 0.3f && hp > 0)

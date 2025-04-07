@@ -25,7 +25,6 @@ public class Player : MonoBehaviour, DataPersistance
     public Transform groundCheck;
     public float plus = 1.4f;
     private GameObject _standingOn;
-
     public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
@@ -44,6 +43,7 @@ public class Player : MonoBehaviour, DataPersistance
         gravityVector = new Vector2(0, Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxHealth(maxHealth);
+        
     }
 
     // Update is called once per frame

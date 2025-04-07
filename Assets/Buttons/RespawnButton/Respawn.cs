@@ -23,5 +23,9 @@ public class Respawn : MonoBehaviour
         Debug.Log("Respawn");
         player.GetComponent<Player>().hp = 100;
         player.transform.position = respawn.transform.position;
+        DataManager.instance.NewGame();
+        DataManager.instance.SaveGame();
+        SceneManager.LoadScene(1);
+
     }
 }

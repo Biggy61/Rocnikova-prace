@@ -23,7 +23,7 @@ public class Sensor : MonoBehaviour
         {
             var position = new Vector2(rb.position.x, rb.position.y - 100);
             Instantiate(trap, position, Quaternion.identity);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

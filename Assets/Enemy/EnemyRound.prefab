@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1892702959773178279}
   - component: {fileID: -3216343362551679062}
   m_Layer: 13
-  m_Name: Round
+  m_Name: EnemyRound
   m_TagString: Round
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,7 +16,7 @@ public class FileDataHandler
 //15:59
   public GameData Load()
   {
-    //Path.COmbine protoze ruzne operacni systemy maji ruzne separatory
+    //Path.Combine protoze ruzne operacni systemy maji ruzne separatory
     string fullPath = Path.Combine(dataDirectoryPath, dataFileName);
     GameData loadedData = null;
     if (File.Exists(fullPath))
