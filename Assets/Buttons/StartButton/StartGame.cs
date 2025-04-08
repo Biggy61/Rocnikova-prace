@@ -17,7 +17,7 @@ public class StartGame : MonoBehaviour
     public void StartButton()
     {
         DataManager.instance.SaveGame();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void NewGameButton()

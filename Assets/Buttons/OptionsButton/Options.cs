@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Options : MonoBehaviour
 {
@@ -12,5 +13,14 @@ public class Options : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

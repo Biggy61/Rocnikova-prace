@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour, DataPersistance
     {
         Debug.Log("blablabla");
         data.enemiesKilled.TryGetValue(id, out enemiesKilled);
-        Debug.Log("killed: " + enemiesKilled);
+        Debug.Log("enemy : "+ id  + enemiesKilled);
         if (enemiesKilled)
         {
             Debug.Log("IT WORKS!");
