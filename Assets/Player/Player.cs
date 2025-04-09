@@ -52,7 +52,7 @@ public class Player : MonoBehaviour, DataPersistance
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer); 
         
         if (!isGrounded) { animator.SetTrigger("Jump"); }
-        if (isGrounded == true) { extraJump = extraJumpValue; }
+        
         
         if (Input.GetKey(KeyCode.Space) && isGrounded == true && IsAlive())
         {
@@ -91,6 +91,7 @@ public class Player : MonoBehaviour, DataPersistance
         FallDeath();
         
         Respawn();
+        Debug.Log(extraJump);
     }
 
     private void FixedUpdate()
@@ -125,6 +126,12 @@ public class Player : MonoBehaviour, DataPersistance
         {
             _standingOn = collision.gameObject;
         }
+
+        if (collision.gameObject.layer == 6)
+        {
+            extraJump = extraJumpValue;
+        }
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
