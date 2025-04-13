@@ -25,6 +25,7 @@ public class Player : MonoBehaviour, DataPersistance
     public Transform groundCheck;
     public float plus = 1.4f;
     private GameObject _standingOn;
+
     public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
@@ -36,24 +37,26 @@ public class Player : MonoBehaviour, DataPersistance
         data.playerPosition = transform.position;
         data.playerHp = hp;
     }
-    
+
     void Start()
     {
         extraJump = extraJumpValue;
         gravityVector = new Vector2(0, Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxHealth(maxHealth);
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer); 
-        
-        if (!isGrounded) { animator.SetTrigger("Jump"); }
-        
-        
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer);
+
+        if (!isGrounded)
+        {
+            animator.SetTrigger("Jump");
+        }
+
+
         if (Input.GetKey(KeyCode.Space) && isGrounded == true && IsAlive())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
@@ -81,23 +84,27 @@ public class Player : MonoBehaviour, DataPersistance
 
             if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
         }
-        
-        if (!IsAlive()) { animator.SetTrigger("Death"); }
+
+        if (!IsAlive())
+        {
+            animator.SetTrigger("Death");
+        }
 
         if (rb.linearVelocity.y < 0)
         {
             rb.linearVelocity += gravityVector * fallMultiplier * Time.deltaTime;
         }
+
         FallDeath();
-        
+
         Respawn();
-        Debug.Log(extraJump);
     }
 
     private void FixedUpdate()
     {
         ApplyMove();
     }
+
     private bool IsAlive()
     {
         return hp > 0;
@@ -110,6 +117,7 @@ public class Player : MonoBehaviour, DataPersistance
             hp = 0;
         }
     }
+
     private void ApplyMove()
     {
         if (_standingOn is not null)
@@ -131,7 +139,6 @@ public class Player : MonoBehaviour, DataPersistance
         {
             extraJump = extraJumpValue;
         }
-        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -144,8 +151,14 @@ public class Player : MonoBehaviour, DataPersistance
 
 
     public void Respawn()
-    { 
-        if (IsAlive()) { respawn.SetActive(!true); }
-        else { respawn.SetActive(true); }
+    {
+        if (IsAlive())
+        {
+            respawn.SetActive(!true);
+        }
+        else
+        {
+            respawn.SetActive(true);
+        }
     }
 }

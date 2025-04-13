@@ -10,6 +10,7 @@ public class GameData
     public Vector3 playerPosition;
     public Vector3 movingPlatformPosition;
     public int playerHp;
+    public int currentLevel;
     public SerializableDictionary<string, bool> healsCollected;
     public SerializableDictionary<string, bool> enemiesKilled;
 
@@ -19,6 +20,7 @@ public class GameData
         this.minutes = 0;
         this.seconds = 0;
         this.score = 0;
+        currentLevel = 2;
         playerPosition = Vector3.zero;
         playerHp = 100;
         healsCollected = new SerializableDictionary<string, bool>();

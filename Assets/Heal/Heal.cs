@@ -23,10 +23,11 @@ public class Heal : MonoBehaviour, DataPersistance
     public void LoadData(GameData data)
     {
         Debug.Log("blablabla");
-        Debug.Log(id + collected);
+        
         //data.healsCollected.TryGetValue(id, out collected);
         if (data.healsCollected.ContainsKey(id)) {
             collected = (data.healsCollected[id]);
+            Debug.Log(id + collected);
         }
         //Debug.Log("heals: " + id + collected);
         if (collected)

@@ -19,12 +19,12 @@ public class Enemy : MonoBehaviour, DataPersistance
     
     public void LoadData(GameData data)
     {
-        Debug.Log("blablabla");
+        //Debug.Log("blablabla");
         data.enemiesKilled.TryGetValue(id, out enemiesKilled);
-        Debug.Log("enemy : "+ id  + enemiesKilled);
+        //Debug.Log("enemy : "+ id  + enemiesKilled);
         if (enemiesKilled)
         {
-            Debug.Log("IT WORKS!");
+            //Debug.Log("IT WORKS!");
             this.gameObject.SetActive(false);
         }
     }

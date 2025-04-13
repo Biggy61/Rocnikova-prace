@@ -1,8 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class StartGame : MonoBehaviour
+public class StartGame : MonoBehaviour, DataPersistance
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static int currentLevel;
+  
+    public void LoadData(GameData data)
+    {
+        currentLevel = data.currentLevel;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentLevel = currentLevel;
+    }
     void Start()
     {
         
@@ -11,17 +21,21 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            currentLevel = 3;
+        }
     }
 
     public void StartButton()
     {
         DataManager.instance.SaveGame();
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(currentLevel);
     }
 
     public void NewGameButton()
     {
         DataManager.instance.NewGame();
+        currentLevel = 2;
     }
 }
