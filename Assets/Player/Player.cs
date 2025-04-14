@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, DataPersistance
 {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour, DataPersistance
     public Transform groundCheck;
     public float plus = 1.4f;
     private GameObject _standingOn;
-
+      
     public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
@@ -98,6 +99,8 @@ public class Player : MonoBehaviour, DataPersistance
         FallDeath();
 
         Respawn();
+        
+
     }
 
     private void FixedUpdate()

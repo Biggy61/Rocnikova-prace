@@ -31,7 +31,7 @@ public class Respawn : MonoBehaviour
         move.transform.position = new Vector3(1020, 40, 160);
         DataManager.instance.NewGame();
         DataManager.instance.SaveGame();
-        SceneManager.LoadScene(StartGame.currentLevel);
+        SceneManager.LoadScene(Level.currentLevel);
 
     }
 }
