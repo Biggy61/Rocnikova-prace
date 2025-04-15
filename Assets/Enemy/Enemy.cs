@@ -12,11 +12,15 @@ public class Enemy : MonoBehaviour, DataPersistance
     {
         id = System.Guid.NewGuid().ToString();
     }
+
     public int hp;
     public GameObject player;
     public GameObject score;
     private bool enemiesKilled = false;
-    
+    public Animator animator;
+    public Rigidbody2D rb;
+    public bool walk;
+
     public void LoadData(GameData data)
     {
         //Debug.Log("blablabla");
@@ -37,14 +41,17 @@ public class Enemy : MonoBehaviour, DataPersistance
         {
             data.enemiesKilled.Remove(id);
         }
+
         data.enemiesKilled.Add(id, enemiesKilled);
         Debug.Log(id + enemiesKilled);
     }
+
     void Start()
     {
-      score = GameObject.FindGameObjectWithTag("Score");
+        score = GameObject.FindGameObjectWithTag("Score");
+        rb = GetComponent<Rigidbody2D>();
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -59,6 +66,7 @@ public class Enemy : MonoBehaviour, DataPersistance
         newScale.x = -1;
         transform.localScale = newScale;
     }
+
     void FlipPositive()
     {
         Vector3 newScale = transform.localScale;
@@ -71,7 +79,8 @@ public class Enemy : MonoBehaviour, DataPersistance
         player = GameObject.FindGameObjectWithTag("Player");
         var playerPos = player.transform.position.x;
         var enemyPos = transform.position.x;
-        bool visible = player.transform.position.y < transform.position.y + 20 && player.transform.position.y > transform.position.y - 20;
+        bool visible = player.transform.position.y < transform.position.y + 20 &&
+                       player.transform.position.y > transform.position.y - 20;
         if (playerPos > enemyPos && visible)
         {
             FlipPositive();
@@ -82,6 +91,7 @@ public class Enemy : MonoBehaviour, DataPersistance
             FlipNegative();
         }
 
+        Walk();
     }
 
     void Death()
@@ -91,7 +101,38 @@ public class Enemy : MonoBehaviour, DataPersistance
             enemiesKilled = true;
             Destroy(gameObject);
             score.GetComponent<Score.Score>().score += 50;
-        }  
+        }
+    }
+
+    void Walk()
+    {
+        float left;
+        float right;
+        if (walk)
+        {
+            animator.SetTrigger("Walk");
+        }
+        else
+        {
+            animator.SetTrigger("Idle");
+        }
+
+        float distancePlayerEnenemy = Vector3.Distance(player.transform.position, transform.position);
+        bool visible = player.transform.position.y < transform.position.y + 20 &&
+                       player.transform.position.y > transform.position.y - 20;
+        if (distancePlayerEnenemy < 200 & visible)
+        {
+            walk = false;
+        }
+        else
+        {
+            walk = true;
+        }
     }
 }
+    
+    
+   
+
+
 
