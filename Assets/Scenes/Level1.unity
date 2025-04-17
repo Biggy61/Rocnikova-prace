@@ -5069,6 +5069,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -5121,6 +5129,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2070242822}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5134,6 +5146,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -5186,6 +5206,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2079547932}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9454,6 +9478,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -9506,6 +9538,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 573672011}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9988,6 +10024,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -10040,6 +10084,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 910304019}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10053,6 +10101,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -10102,9 +10158,17 @@ PrefabInstance:
       value: 13fecaed-5ce1-495b-9fc7-d36467ffb955
       objectReference: {fileID: 0}
     - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: walk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 804348432}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11287,6 +11351,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -11339,6 +11411,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1963303307}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11804,6 +11880,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -11856,6 +11940,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1247460587}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12193,6 +12281,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -12242,9 +12338,17 @@ PrefabInstance:
       value: 31362139-85b2-4c9e-a072-1b17063f6a5e
       objectReference: {fileID: 0}
     - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: walk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 2112845440}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13158,6 +13262,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139408031}
     m_Modifications:
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: view
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088847676977940469, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: visibility
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3036146956393022439, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -13210,6 +13322,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1649311732}
+    - target: {fileID: 4599063194500328486, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
+      propertyPath: distance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7078976983053559744, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_GravityScale
       value: 36.44

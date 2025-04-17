@@ -10,7 +10,7 @@ public class EnemyShoot : MonoBehaviour
     public GameObject player;
     private float timer;
 
-
+    public float view;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +21,9 @@ public class EnemyShoot : MonoBehaviour
     void Update()
     {
         float distancePlayerEnenemy = Vector3.Distance(player.transform.position, transform.position);
-        bool visible = player.transform.position.y < transform.position.y + 20 &&
+        bool visible = player.transform.position.y < transform.position.y + view &&
                        player.transform.position.y > transform.position.y - 20;
-        if (distancePlayerEnenemy < 200 & visible)
+        if (distancePlayerEnenemy < 300 & visible)
         {
             timer += Time.deltaTime;
             if (timer > 1)

@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour, DataPersistance
     public Animator animator;
     public Rigidbody2D rb;
     public bool walk;
-
+    public float distance;
     public void LoadData(GameData data)
     {
         //Debug.Log("blablabla");
@@ -106,8 +106,9 @@ public class Enemy : MonoBehaviour, DataPersistance
 
     void Walk()
     {
-        float left;
-        float right;
+       Vector2 left;
+       Vector2 right;
+
         if (walk)
         {
             animator.SetTrigger("Walk");
@@ -118,9 +119,9 @@ public class Enemy : MonoBehaviour, DataPersistance
         }
 
         float distancePlayerEnenemy = Vector3.Distance(player.transform.position, transform.position);
-        bool visible = player.transform.position.y < transform.position.y + 20 &&
+        bool visible = player.transform.position.y < transform.position.y + distance &&
                        player.transform.position.y > transform.position.y - 20;
-        if (distancePlayerEnenemy < 200 & visible)
+        if (distancePlayerEnenemy < 300 & visible)
         {
             walk = false;
         }
