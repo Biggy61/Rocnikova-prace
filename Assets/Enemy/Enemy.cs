@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour, DataPersistance
     {
         score = GameObject.FindGameObjectWithTag("Score");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
 
