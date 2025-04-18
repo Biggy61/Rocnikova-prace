@@ -24,12 +24,13 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            var nextScene = SceneManager.GetActiveScene().buildIndex + 1;
             player.transform.position = respawn.transform.position;
             move.transform.position = new Vector3(1020, 40, 160);
             DataManager.instance.NewGame();
             DataManager.instance.SaveGame();
-            SceneManager.LoadScene(3);
-            Level.currentLevel = 3;
+            SceneManager.LoadScene(nextScene);
+            Level.currentLevel = nextScene;
         }
     }
 }

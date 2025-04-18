@@ -17,10 +17,9 @@ public class Level : MonoBehaviour, DataPersistance
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex > 1)
         {
-            currentLevel = 3;
-            Debug.Log(currentLevel);
+            currentLevel = SceneManager.GetActiveScene().buildIndex;
         }
     }
 }
