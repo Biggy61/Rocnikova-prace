@@ -761,7 +761,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 577427652}
-        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_TargetAssemblyTypeName: EndGame, Assembly-CSharp
         m_MethodName: OptionsMenu
         m_Mode: 1
         m_Arguments:
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 577427647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3a7642956c81048a024ecb15c0d2f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b5f2f872f2c7154a919cbf17e958de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &737789732

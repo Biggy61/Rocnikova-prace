@@ -21,10 +21,18 @@ public class EndGame : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
 
     public void BackToMainMenu()
     {
         DataManager.instance.SaveGame();
+        SceneManager.LoadScene(0);
+    }
+    public void BackToMainMenuFromOptions()
+    {
         SceneManager.LoadScene(0);
     }
 }
