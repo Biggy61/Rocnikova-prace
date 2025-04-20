@@ -23,6 +23,7 @@ public class EndGame : MonoBehaviour
     }
     public void OptionsMenu()
     {
+        DataManager.instance.SaveGame();
         SceneManager.LoadScene(1);
     }
 
@@ -33,6 +34,7 @@ public class EndGame : MonoBehaviour
     }
     public void BackToMainMenuFromOptions()
     {
+        DataManager.instance.SaveGame();
         SceneManager.LoadScene(0);
     }
 }

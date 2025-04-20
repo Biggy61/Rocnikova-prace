@@ -13,6 +13,8 @@ public class GameData
     public int currentLevel;
     public SerializableDictionary<string, bool> healsCollected;
     public SerializableDictionary<string, bool> enemiesKilled;
+    public float musicVolume;
+    public float soundEffectsVolume;
 
     public GameData()
     {
@@ -25,5 +27,7 @@ public class GameData
         playerHp = 100;
         healsCollected = new SerializableDictionary<string, bool>();
         enemiesKilled = new SerializableDictionary<string, bool>();
+        musicVolume = 0.5f;
+        soundEffectsVolume = 0.5f;
     }
 }
