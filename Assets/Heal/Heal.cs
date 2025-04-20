@@ -18,7 +18,7 @@ public class Heal : MonoBehaviour, DataPersistance
     public GameObject score;
 
     public bool collected = false;
-
+    AudioManager audioManager;
     // Start is called before the first frame update
     public void LoadData(GameData data)
     {
@@ -53,6 +53,7 @@ public class Heal : MonoBehaviour, DataPersistance
     {
         player = GameObject.FindGameObjectWithTag("Player");
         score = GameObject.FindGameObjectWithTag("Score");
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -65,6 +66,7 @@ public class Heal : MonoBehaviour, DataPersistance
         if (collision.gameObject.name == "Player")
         {
             Destroy(this.gameObject);
+            audioManager.PlaySoundEffects(audioManager.heal);
             collected = true;
             Debug.Log(collected);
             score.GetComponent<Score.Score>().score += 10;
@@ -72,6 +74,7 @@ public class Heal : MonoBehaviour, DataPersistance
             {
                 player.GetComponent<Player>().hp += 10;
                 Debug.Log("Healed");
+                
             }
         }
     }

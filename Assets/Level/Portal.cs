@@ -7,11 +7,13 @@ public class Portal : MonoBehaviour
     public GameObject player;
     public GameObject respawn;
     public GameObject move;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         respawn = GameObject.FindGameObjectWithTag("Respawn");
         move = GameObject.FindGameObjectWithTag("Move");
+
     }
 
     // Update is called once per frame

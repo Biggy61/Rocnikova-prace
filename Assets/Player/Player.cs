@@ -26,6 +26,10 @@ public class Player : MonoBehaviour, DataPersistance
     public Transform groundCheck;
     public float plus = 1.4f;
     private GameObject _standingOn;
+    AudioManager audioManager;
+    public bool IsDead = false;
+
+
       
     public void LoadData(GameData data)
     {
@@ -45,6 +49,8 @@ public class Player : MonoBehaviour, DataPersistance
         gravityVector = new Vector2(0, Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetMaxHealth(maxHealth);
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager.PlaySoundEffects(audioManager.lvl);
     }
 
     // Update is called once per frame
@@ -82,13 +88,13 @@ public class Player : MonoBehaviour, DataPersistance
         {
             horizontal = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(horizontal * characterSpeed, rb.linearVelocity.y);
-
             if (horizontal != 0) transform.localScale = new Vector3(horizontal, 1, 1);
         }
 
         if (!IsAlive())
         {
             animator.SetTrigger("Death");
+            
         }
 
         if (rb.linearVelocity.y < 0)
@@ -99,8 +105,12 @@ public class Player : MonoBehaviour, DataPersistance
         FallDeath();
 
         Respawn();
-        
 
+        if (!IsAlive() && !IsDead)
+        {
+            audioManager.PlaySoundEffects(audioManager.death);
+            IsDead = true;
+        }
     }
 
     private void FixedUpdate()
