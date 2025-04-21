@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour, DataPersistance
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("saving ");
+        //Debug.Log("saving ");
         //pokud uz je v Dictionary tam se vymaze a prida znovu
         if (data.enemiesKilled.ContainsKey(id))
         {

@@ -29,7 +29,6 @@ public class Respawn : MonoBehaviour
         player.GetComponent<Player>().hp = 100;
         player.transform.position = respawn.transform.position;
         move.transform.position = new Vector3(1020, 40, 160);
-        DataManager.instance.NewGame();
         DataManager.instance.SaveGame();
         SceneManager.LoadScene(Level.currentLevel);
 

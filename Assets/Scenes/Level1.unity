@@ -8488,7 +8488,6 @@ GameObject:
   - component: {fileID: 1437147724}
   - component: {fileID: 1437147723}
   - component: {fileID: 1437147722}
-  - component: {fileID: 1437147726}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8583,19 +8582,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1437147726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437147721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94fc1ce6cffd5894b90c82b0a76034b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 1217635127}
 --- !u!1 &1445049002
 GameObject:
   m_ObjectHideFlags: 0
@@ -9731,7 +9717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3604051669055931098, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1883
+      value: 1918
       objectReference: {fileID: 0}
     - target: {fileID: 3604051669055931098, guid: d3bcd1d1fed3d994da279086694090ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11306,7 +11292,7 @@ PrefabInstance:
     - target: {fileID: 5709685897247994789, guid: 97e79677eed681d4a84a02e5a27b2cf9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1605108339}
     - target: {fileID: 6854283333078749462, guid: 97e79677eed681d4a84a02e5a27b2cf9, type: 3}
       propertyPath: m_Name
       value: MovingPlatform
