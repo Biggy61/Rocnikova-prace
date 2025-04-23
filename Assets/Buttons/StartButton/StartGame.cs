@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour, DataPersistance
+public class StartGame : MonoBehaviour
 {
     public float musicVolume;
     public float effectsVolume;
@@ -9,16 +9,7 @@ public class StartGame : MonoBehaviour, DataPersistance
     {
         
     }
-    public void LoadData(GameData data)
-    {
 
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        //data.musicVolume = musicVolume;
-        //data.soundEffectsVolume = effectsVolume;
-    }
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +19,7 @@ public class StartGame : MonoBehaviour, DataPersistance
     {
         
         DataManager.instance.SaveGame();
+        DataManager.instance.SaveVolume();
         SceneManager.LoadScene(Level.currentLevel);
     }
 

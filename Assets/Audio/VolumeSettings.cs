@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-public class VolumeSettings : MonoBehaviour, DataPersistance
+public class VolumeSettings : MonoBehaviour, VolumeDataPersistance
 {
   public AudioMixer mixer;
   public Slider musicSlider;
@@ -16,13 +16,13 @@ public class VolumeSettings : MonoBehaviour, DataPersistance
       SetSoundEffectVolume();
 
   }
-  public void LoadData(GameData data)
+  public void LoadVolume(VolumeData data)
   {
      musicSlider.value = data.musicVolume;
      soundEffectSlider.value = data.soundEffectsVolume;
   }
 
-  public void SaveData(ref GameData data)
+  public void SaveVolume(ref VolumeData data)
   {
     data.musicVolume = musicSlider.value;
     data.soundEffectsVolume = soundEffectSlider.value;

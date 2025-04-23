@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.game
+  volumeFileName: volume.game
 --- !u!1 &109062315
 GameObject:
   m_ObjectHideFlags: 0

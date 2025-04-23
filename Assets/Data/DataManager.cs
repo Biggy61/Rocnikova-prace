@@ -8,12 +8,15 @@ public class DataManager : MonoBehaviour
 {
     [Header("File Storage Config")] [SerializeField]
     private string fileName;
-
+    [Header("Volume Storage Config")] [SerializeField]
+    private string volumeFileName;
     private GameData gameData;
+    private VolumeData volumeData;
     private List<DataPersistance> dataPersistanceOBJ;
+    private List<VolumeDataPersistance> volumeDataPersistanceOBJ;
     public static DataManager instance { get; private set; }
     private FileDataHandler dataHandler;
-
+    private FileDataHandler volumeHandler;
     private void Awake()
     {
         if (instance != null)
@@ -29,8 +32,11 @@ public class DataManager : MonoBehaviour
     {
         //persistentDataPath - da OS standartni directory pro unity project
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.volumeHandler = new FileDataHandler(Application.persistentDataPath, volumeFileName);
         this.dataPersistanceOBJ = FindAllDataObjects();
+        this.volumeDataPersistanceOBJ = FindAllVolumeDataObjects();
         LoadGame();
+        LoadVolume();
     }
 
     public void ExitGame()
@@ -49,6 +55,17 @@ public class DataManager : MonoBehaviour
 
         this.gameData = new GameData();
     }
+    public void NewVolume()
+    {
+        //File.Delete(Path.Combine(Application.persistentDataPath, fileName));
+        //File.Create(Path.Combine(Application.persistentDataPath, fileName));
+        using (var FileWriter = new StreamWriter(Path.Combine(Application.persistentDataPath, volumeFileName), false))
+        {
+            FileWriter.WriteLine("");
+        }
+
+        this.volumeData = new VolumeData();
+    }
 
     public void LoadGame()
     {
@@ -64,6 +81,21 @@ public class DataManager : MonoBehaviour
             dataPersistance.LoadData(gameData);
         }
     }
+    
+    public void LoadVolume()
+    {
+        this.volumeData = volumeHandler.LoadVolume();
+
+        if (volumeData == null)
+        {
+            NewVolume();
+        }
+
+        foreach (VolumeDataPersistance dataPersistance in volumeDataPersistanceOBJ)
+        {
+            dataPersistance.LoadVolume(volumeData);
+        }
+    }
 
     public void SaveGame()
     {
@@ -74,6 +106,16 @@ public class DataManager : MonoBehaviour
 
         dataHandler.Save(gameData);
     }
+    
+    public void SaveVolume()
+    {
+        foreach (VolumeDataPersistance dataPersistance in volumeDataPersistanceOBJ)
+        {
+            dataPersistance.SaveVolume(ref volumeData);
+        }
+
+        volumeHandler.SaveVolume(volumeData);
+    }
 
     private List<DataPersistance> FindAllDataObjects()
     {
@@ -81,5 +123,12 @@ public class DataManager : MonoBehaviour
             FindObjectsOfType<MonoBehaviour>().OfType<DataPersistance>();
 
         return new List<DataPersistance>(dataPersistancesObjects);
+    }
+    private List<VolumeDataPersistance> FindAllVolumeDataObjects()
+    {
+        IEnumerable<VolumeDataPersistance> dataPersistancesObjects =
+            FindObjectsOfType<MonoBehaviour>().OfType<VolumeDataPersistance>();
+
+        return new List<VolumeDataPersistance>(dataPersistancesObjects);
     }
 }

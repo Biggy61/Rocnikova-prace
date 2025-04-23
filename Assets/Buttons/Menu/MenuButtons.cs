@@ -18,12 +18,14 @@ public class EndGame : MonoBehaviour
     public void EndGameButton()
     {
         DataManager.instance.SaveGame();
+        DataManager.instance.SaveVolume();
         Application.Quit();
         Debug.Log("Quit");
     }
     public void OptionsMenu()
     {
         DataManager.instance.SaveGame();
+        DataManager.instance.SaveVolume();
         SceneManager.LoadScene(1);
     }
 
@@ -34,7 +36,7 @@ public class EndGame : MonoBehaviour
     }
     public void BackToMainMenuFromOptions()
     {
-        DataManager.instance.SaveGame();
+        DataManager.instance.SaveVolume();
         SceneManager.LoadScene(0);
     }
 }

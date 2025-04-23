@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9292666917be74646a3bf4cbe09ce716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0
+  effectsVolume: 0
 --- !u!1 &127065817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.game
+  volumeFileName: volume.game
 --- !u!1 &1590645015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9292666917be74646a3bf4cbe09ce716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0
+  effectsVolume: 0
 --- !u!114 &1590645018
 MonoBehaviour:
   m_ObjectHideFlags: 0
