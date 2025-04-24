@@ -21,7 +21,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<Player>().hp -= 10;
+            player.GetComponent<Player>().hp -= 20;
             Debug.Log("Hit!");
         }
         Destroy(this.gameObject);

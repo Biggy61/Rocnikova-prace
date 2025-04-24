@@ -11,6 +11,7 @@ public class Shoot : MonoBehaviour
     public Animator animator;
     public GameObject player;
     public int hp;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class Shoot : MonoBehaviour
     { 
          timer += Time.deltaTime;
          hp = player.GetComponent<Player>().hp;
-         if (Input.GetMouseButtonDown(0) && timer > 0.3f && hp > 0)
+         if (Input.GetMouseButtonDown(0) && timer > 0.3f && hp > 0 && !Player.Moving)
          {
              shoot();
              animator.SetTrigger("Attack");

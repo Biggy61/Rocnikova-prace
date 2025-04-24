@@ -9,10 +9,7 @@ public class Player : MonoBehaviour, DataPersistance
     public Animator animator;
     public Rigidbody2D rb;
     public int hp;
-    private int extraJump;
-    public int extraJumpValue;
     public int maxHealth = 100;
-    public HealthBar healthBar;
     public int characterSpeed;
     public int jump;
     public int jumpPower;
@@ -22,15 +19,14 @@ public class Player : MonoBehaviour, DataPersistance
     public LayerMask groundLayer;
     [SerializeField] float fallMultiplier;
     public Vector2 gravityVector;
-    public bool isGrounded;
+    public bool isGrounded => groundScript.isGrounded;
     public Transform groundCheck;
     public float plus = 1.4f;
     private GameObject _standingOn;
     AudioManager audioManager;
     public bool IsDead = false;
-
-
-      
+    public static bool Moving;
+    public PlayerGroundScript groundScript;
     public void LoadData(GameData data)
     {
         this.transform.position = data.playerPosition;
@@ -45,33 +41,37 @@ public class Player : MonoBehaviour, DataPersistance
 
     void Start()
     {
-        extraJump = extraJumpValue;
         gravityVector = new Vector2(0, Physics2D.gravity.y);
         rb = GetComponent<Rigidbody2D>();
-        healthBar.SetMaxHealth(maxHealth);
+        //healthBar.SetMaxHealth(maxHealth);
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         audioManager.PlaySoundEffects(audioManager.lvl);
+        groundScript = transform.GetChild(1).gameObject.GetComponent<PlayerGroundScript>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer);
+        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, castDistance, groundLayer);
 
         if (!isGrounded)
         {
             animator.SetTrigger("Jump");
         }
-
+        
 
         if (Input.GetKey(KeyCode.Space) && isGrounded == true && IsAlive())
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
+              rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+              groundScript.isGrounded = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && extraJump > 0 && IsAlive())
+        else if (Input.GetKeyDown(KeyCode.Space) && groundScript.canDoubleJump && IsAlive() && !isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
-            extraJump--;
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
+            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            groundScript.canDoubleJump = false;
         }
         else
         {
@@ -81,9 +81,14 @@ public class Player : MonoBehaviour, DataPersistance
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && isGrounded && IsAlive())
         {
             animator.SetTrigger("Move");
+            Moving = true;
+        }
+        else
+        {
+            Moving = false;
         }
 
-        healthBar.SetHealth(hp);
+        //healthBar.SetHealth(hp);
         if (IsAlive())
         {
             horizontal = Input.GetAxisRaw("Horizontal");
@@ -97,10 +102,9 @@ public class Player : MonoBehaviour, DataPersistance
             
         }
 
-        if (rb.linearVelocity.y < 0)
-        {
-            rb.linearVelocity += gravityVector * fallMultiplier * Time.deltaTime;
-        }
+
+        rb.AddForce(gravityVector * (fallMultiplier / 100), ForceMode2D.Impulse);
+        
 
         FallDeath();
 
@@ -148,10 +152,7 @@ public class Player : MonoBehaviour, DataPersistance
             _standingOn = collision.gameObject;
         }
 
-        if (collision.gameObject.layer == 6)
-        {
-            extraJump = extraJumpValue;
-        }
+      
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -174,4 +175,6 @@ public class Player : MonoBehaviour, DataPersistance
             respawn.SetActive(true);
         }
     }
+
+
 }
