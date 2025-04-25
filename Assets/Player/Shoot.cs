@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
     { 
          timer += Time.deltaTime;
          hp = player.GetComponent<Player>().hp;
-         if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.E) && timer > 0.3f && hp > 0 && !playerScript.IsMoving)
+         if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.E)) && timer > 0.3f && hp > 0 && !playerScript.IsMoving)
          {
              shoot();
              animator.SetTrigger("Attack");
