@@ -289,21 +289,21 @@ MonoBehaviour:
   rb: {fileID: 4473012004317591903}
   hp: 100
   maxHealth: 100
-  healthBar: {fileID: 0}
   characterSpeed: 175
   jump: 1
-  jumpPower: 150
+  jumpPower: 115
   respawn: {fileID: 0}
   horizontal: 0
   castDistance: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  fallMultiplier: 10
+  fallMultiplier: 30
   gravityVector: {x: 0, y: 0}
   groundCheck: {fileID: 5533089014064180283}
   plus: 0
   IsDead: 0
+  IsMoving: 0
   groundScript: {fileID: 0}
 --- !u!114 &3662337261916850641
 MonoBehaviour:
@@ -322,6 +322,7 @@ MonoBehaviour:
   animator: {fileID: 4594901852176154179}
   player: {fileID: 7330442488475545219}
   hp: 0
+  playerScript: {fileID: 0}
 --- !u!114 &5706102953061523252
 MonoBehaviour:
   m_ObjectHideFlags: 0

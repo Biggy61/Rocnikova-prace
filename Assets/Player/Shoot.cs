@@ -11,12 +11,13 @@ public class Shoot : MonoBehaviour
     public Animator animator;
     public GameObject player;
     public int hp;
+    public Player playerScript;
     
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        playerScript = player.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class Shoot : MonoBehaviour
     { 
          timer += Time.deltaTime;
          hp = player.GetComponent<Player>().hp;
-         if (Input.GetMouseButtonDown(0) && timer > 0.3f && hp > 0 && !Player.Moving)
+         if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.E) && timer > 0.3f && hp > 0 && !playerScript.IsMoving)
          {
              shoot();
              animator.SetTrigger("Attack");

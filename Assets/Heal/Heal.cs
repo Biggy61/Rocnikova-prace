@@ -72,7 +72,7 @@ public class Heal : MonoBehaviour, DataPersistance
             score.GetComponent<Score.Score>().score += 10;
             if (player.GetComponent<Player>().hp < 100)
             {
-                player.GetComponent<Player>().hp += 10;
+                player.GetComponent<Player>().hp += 20;
                 Debug.Log("Healed");
                 
             }

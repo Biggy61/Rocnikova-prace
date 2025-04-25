@@ -25,7 +25,7 @@ public class Player : MonoBehaviour, DataPersistance
     private GameObject _standingOn;
     AudioManager audioManager;
     public bool IsDead = false;
-    public static bool Moving;
+    public bool IsMoving;
     public PlayerGroundScript groundScript;
     public void LoadData(GameData data)
     {
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour, DataPersistance
         if (Input.GetKey(KeyCode.Space) && isGrounded == true && IsAlive())
         {
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump * jumpPower);
-              rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
               groundScript.isGrounded = false;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && groundScript.canDoubleJump && IsAlive() && !isGrounded)
@@ -81,11 +81,15 @@ public class Player : MonoBehaviour, DataPersistance
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && isGrounded && IsAlive())
         {
             animator.SetTrigger("Move");
-            Moving = true;
+        }
+
+        if (rb.linearVelocity.magnitude > 1f)
+        {
+            IsMoving = true;
         }
         else
         {
-            Moving = false;
+            IsMoving = false;
         }
 
         //healthBar.SetHealth(hp);
@@ -103,8 +107,11 @@ public class Player : MonoBehaviour, DataPersistance
         }
 
 
-        rb.AddForce(gravityVector * (fallMultiplier / 100), ForceMode2D.Impulse);
-        
+        //rb.AddForce(gravityVector * (fallMultiplier / 100), ForceMode2D.Impulse);
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += gravityVector * (fallMultiplier * Time.deltaTime);
+        }
 
         FallDeath();
 

@@ -19,7 +19,7 @@ public class PlayerGroundScript : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Move"))
         {
             isGrounded = true;
             canDoubleJump = true;
@@ -28,7 +28,7 @@ public class PlayerGroundScript : MonoBehaviour
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Move"))
         {
             isGrounded = false;
         }
