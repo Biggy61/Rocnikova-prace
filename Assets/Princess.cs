@@ -4,10 +4,10 @@ using UnityEngine;
 public class Princess : MonoBehaviour
 {
     public GameObject text;
-
+    AudioManager audioManager;
     void Start()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class Princess : MonoBehaviour
         {
             Time.timeScale = 0f;
             text.SetActive(true);
+            audioManager.PlaySoundEffects(audioManager.gameOver);
         }
 
     }

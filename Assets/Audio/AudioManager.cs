@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour
    public AudioClip death;
    public AudioClip heal;
    public AudioClip lvl;
-
+   public AudioClip gameOver;
+   public AudioClip kill;
    public void Start()
    {
       music.clip = background;

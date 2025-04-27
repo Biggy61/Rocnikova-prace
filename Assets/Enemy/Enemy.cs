@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour, DataPersistance
     private Vector3 rightPoint;
     private bool movingRight = true;
     public float checkDistance;
+    AudioManager audioManager;
     public void LoadData(GameData data)
     {
         //Debug.Log("blablabla");
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour, DataPersistance
         animator = GetComponent<Animator>();
         leftPoint = transform.position + Vector3.left * distance;
         rightPoint = transform.position + Vector3.right * distance;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
 
@@ -91,6 +93,7 @@ public class Enemy : MonoBehaviour, DataPersistance
             enemiesKilled = true;
             Destroy(gameObject);
             score.GetComponent<Score.Score>().score += 50;
+            audioManager.PlaySoundEffects(audioManager.kill);
         }
     }
 
