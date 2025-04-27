@@ -21,10 +21,6 @@ public class JumpKill : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<Enemy>().hp -= 100;
-            if (player.GetComponent<Player>().hp < 100)
-            {
-                player.GetComponent<Player>().hp += 10;
-            }
 
         }
     }

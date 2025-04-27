@@ -144,7 +144,7 @@ public class Player : MonoBehaviour, DataPersistance
 
     private void ApplyMove()
     {
-        if (_standingOn is not null)
+        if (_standingOn is not null && IsAlive())
         {
             var move = rb.transform.position;
             move.x += _standingOn.GetComponent<PlatformFloatingSideways>().plus;

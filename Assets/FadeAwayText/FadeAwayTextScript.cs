@@ -2,11 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FadeAwayScript : MonoBehaviour
+public class FadeAwayTextScript : MonoBehaviour
 {
     private TextMeshProUGUI text;
     public float fadeAwayTime = 3f;
-    private int currentLevel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,8 +16,7 @@ public class FadeAwayScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentLevel = SceneManager.GetActiveScene().buildIndex - 1;
-        text.text = "Level: " +  currentLevel.ToString();
+        text.text = "YOU WIN!";
         FadeAway();
     }
 

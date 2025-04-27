@@ -6,6 +6,7 @@ public class PlatformFloatingSideways : MonoBehaviour, DataPersistance
 
     public bool Direction;
     public Player player;
+    public GameObject playerObject;
     public float plus;
     private bool standingOnPlatform = false;
     public void LoadData(GameData data)
@@ -21,13 +22,15 @@ public class PlatformFloatingSideways : MonoBehaviour, DataPersistance
     {
         plus = 1.5f;
         rb = GetComponent<Rigidbody2D>();
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.GetComponent<Player>();
     }
 
     
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (standingOnPlatform)
+        if (standingOnPlatform  && playerObject.GetComponent<Player>().hp > 0)
         {
             var move = rb.transform.position;
             move.x += plus;
@@ -36,7 +39,6 @@ public class PlatformFloatingSideways : MonoBehaviour, DataPersistance
         }
 
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground")) { plus *= -1; player.plus *= -1; }

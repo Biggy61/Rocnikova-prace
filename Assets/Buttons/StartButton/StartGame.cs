@@ -27,5 +27,6 @@ public class StartGame : MonoBehaviour
     {
         DataManager.instance.NewGame();
         Level.currentLevel = 2;
+        Time.timeScale = 1f;
     }
 }
